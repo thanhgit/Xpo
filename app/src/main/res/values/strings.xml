@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Xpo</string>
-    <string name="title_activity_home">Map</string>
+    <string name="title_activity_home">Xpo</string>
 
     <!--login activity-->
     <string name="title_where_login">Welcome to Xpo</string>
