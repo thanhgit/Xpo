@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">Xpo</string>
     <string name="title_activity_home">Map</string>
+
+    <!--login activity-->
+    <string name="title_where_login">Welcome to Xpo</string>
+
+    <!--menu home-->
+    <string name="settings_where_menu_home">Settings</string>
+    <string name="logout_where_menu_home">Logout</string>
 </resources>
