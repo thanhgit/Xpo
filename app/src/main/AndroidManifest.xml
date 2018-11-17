@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.saveteam.xpo">
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the 'MyLocation' functionality. 
+    -->
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:hardwareAccelerated="true"
+        android:theme="@style/AppTheme">
+        <service
+            android:name="com.here.android.mpa.service.MapService"
+            android:label="org.saveteam.xpo.MapService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="org.saveteam.xpo.MapService">
+                </action>
+            </intent-filter>
+        </service>
+
+        <meta-data android:name="com.here.android.maps.appid"
+            android:value="VIN6sVAgEG4fUqEJ5JsI"/>
+        <meta-data android:name="com.here.android.maps.apptoken"
+            android:value="9KF9Ou-7gXqs5yG3pTWPOQ"/>
+        <meta-data android:name="com.here.android.maps.license.key"
+            android:value="W+qt0Lp/UjVeLbZpWDjgx0ut3D1dn+tunPyc7i1gPQ7SWvGBH1DEpcToMdPbFlK6ZRqXXOJmvQN4T+ZjfO52LbGEzYa8e3L7H6dE2xEZIt2gN+GTS0hqJyuN56Amz6kBn5jeh54do/71SSiSCEQMFR7dNlJsyk1HCMKDBoG4SJsI38h73qZJBO8SU9qM4hIGsBaSCuRSNQIYW0ozvidnIum4fV3+3UGHmqdbVm0AfDPcXD0YB3TgMPzSceFIo3Iq+qKYBTfhxxySa1XtpmbGrLCbV33JNSZ0PVfEeuLR0Nje3hNc07k7IvKPAV0PGpca20BUVyU/OsOPv1pv4ARFUwPAFtwCREUC5kr+aSC9QNAnYevmoinWN5WZuZsyqwWQ81gwZQEKHQX2G6U7yj5UzqL+ZBDZTyiGAOkzhHhysF8dOml0SG463xUhvjSSOo0sG87Dvc/JOEPAIYcOCsJK49YnWkb4aVXEM11E/9maNZzhWS8HehqDwf+kV5oeNDU6yJUEIAszpgqzWbaAfcQG1UpO7QJCj1KONGEi78NQV/RGSYic0UnfWA15J9UoAMGVU/O+SgL5eA71U0jDZTWQlNTiPnW9/H+o14fvUzVeAia9/L2A+DMgL6JyMbhZq91qSuVAxgRBE3Hs+W611FJ628cRcinEzzjSgmVr2rKFYwU="/>
+
+
+
+        <activity
+            android:name=".HomeActivity"
+            android:label="@string/title_activity_home">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
