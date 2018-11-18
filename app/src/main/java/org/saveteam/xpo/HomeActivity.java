@@ -14,6 +14,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.cloudinary.Cloudinary;
+import com.cloudinary.Transformation;
+import com.cloudinary.utils.ObjectUtils;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.ConnectionResult;
@@ -22,11 +25,13 @@ import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 import com.here.android.mpa.common.GeoCoordinate;
 
-import org.saveteam.xpo.model.MyMarker;
-
+import java.io.File;
+import java.io.IOException;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -49,16 +54,30 @@ public class HomeActivity extends AppCompatActivity implements  GoogleApiClient.
     @BindView(R.id.txt_time_where_home)
     EditText txtTime;
 
+    @BindView(R.id.btn_shoot_camera_where_home)
+    Button btnShootCamera;
+    @BindView(R.id.btn_submit_where_home)
+    Button btnSubmit;
+
+    Cloudinary cloudinary = null;
+
     /**
      * google
      */
     GoogleApiClient mGoogleApiClient;
 
+    Uri videoUrl = null;
+
+    double poslong = 0;
+    double poslat = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
         ButterKnife.bind(this);
+
 
         txtTime.setText(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").format(new Date()));
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -68,6 +87,8 @@ public class HomeActivity extends AppCompatActivity implements  GoogleApiClient.
                 .enableAutoManage(this, this)
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
+
+
     }
 
     @OnClick({R.id.btn_camera_where_home, R.id.btn_shoot_camera_where_home})
@@ -79,21 +100,42 @@ public class HomeActivity extends AppCompatActivity implements  GoogleApiClient.
     }
 
     @OnClick(R.id.btn_location_where_home)
-    public void clickTxtLocation(View view) {
+    public void clickButtonLocation(View view) {
         Intent mapIntent = new Intent(getApplicationContext(), MapActivity.class);
         startActivityForResult(mapIntent, REQUEST_LOCATION);
+    }
+
+    @OnClick(R.id.btn_submit_where_home)
+    public void clickButtonSubmit(View view)  {
+        if(videoUrl==null) {
+            Toast.makeText(getApplicationContext(), "Please, you must have video report", Toast.LENGTH_LONG).show();
+        } else {
+            String position = "https://wego.here.com/?map="+poslat+","+ poslong +",10,normal";
+            Toast.makeText(getApplicationContext(), videoUrl.getPath(), Toast.LENGTH_LONG).show();
+            Intent email = new Intent(Intent.ACTION_SEND);
+            email.putExtra(Intent.EXTRA_EMAIL, new String[]{"thanh29695@gmail.com"});
+            email.putExtra(Intent.EXTRA_SUBJECT, "Report " + txtTitleVideo.getText());
+            email.putExtra(Intent.EXTRA_TEXT, txtDetails.getText() + "\n" + txtTime.getText() + "\n" + position) ;
+            email.putExtra(Intent.EXTRA_STREAM, videoUrl);
+            email.setType("message/rfc822");
+            startActivity(Intent.createChooser(email, "Choose an Email client :"));
+        }
+
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if(requestCode == REQUEST_CAMERA && resultCode == RESULT_OK) {
             Uri uri = data.getData();
-            btnCamera.setText(uri.toString());
+            btnCamera.setText(uri.getPath());
+            videoUrl = uri;
         }
 
         if (requestCode == REQUEST_LOCATION && resultCode == RESULT_OK) {
             double longtitude = data.getDoubleExtra("long", 0);
             double latitude = data.getDoubleExtra("lat", 0);
+            poslat = latitude;
+            poslong = longtitude;
             btnLocation.setText("(" + longtitude +"," + latitude +")");
         }
     }

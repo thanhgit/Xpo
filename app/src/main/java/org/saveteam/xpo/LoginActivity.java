@@ -37,6 +37,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        getSupportActionBar().hide();
         ButterKnife.bind(this);
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -130,7 +131,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void updateUI(@Nullable GoogleSignInAccount account) {
         if (account != null) {
-            ActivityUtils.changeActivity(this, MapActivity.class);
+            ActivityUtils.changeActivity(this, HomeActivity.class);
         }
     }
 
@@ -139,17 +140,4 @@ public class LoginActivity extends AppCompatActivity {
         signIn();
     }
 
-//    @Override
-//    public void onClick(View v) {
-//        switch (v.getId()) {
-//            case R.id.btn_signin_where_login:
-//                signIn();
-//                break;
-//            case R.id.sign_out_button:
-//                signOut();
-//                break;
-//            case R.id.disconnect_button:
-//                revokeAccess();
-//                break;
-//        }
 }

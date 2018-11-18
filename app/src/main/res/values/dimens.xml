@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="margin_top_title_where_login">20dp</dimen>
+    <dimen name="margin_top_title_where_login">40dp</dimen>
 </resources>

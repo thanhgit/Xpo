@@ -3,7 +3,7 @@
     <string name="title_activity_home">Xpo</string>
 
     <!--login activity-->
-    <string name="title_where_login">Welcome to Xpo</string>
+    <string name="title_where_login">Welcome to</string>
 
     <!--menu home-->
     <string name="settings_where_menu_home">Settings</string>

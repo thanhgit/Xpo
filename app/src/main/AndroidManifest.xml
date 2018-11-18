@@ -14,7 +14,7 @@
     <application
         android:allowBackup="true"
         android:hardwareAccelerated="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/xpo"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -38,6 +38,7 @@
         <meta-data
             android:name="com.here.android.maps.license.key"
             android:value="W+qt0Lp/UjVeLbZpWDjgx0ut3D1dn+tunPyc7i1gPQ7SWvGBH1DEpcToMdPbFlK6ZRqXXOJmvQN4T+ZjfO52LbGEzYa8e3L7H6dE2xEZIt2gN+GTS0hqJyuN56Amz6kBn5jeh54do/71SSiSCEQMFR7dNlJsyk1HCMKDBoG4SJsI38h73qZJBO8SU9qM4hIGsBaSCuRSNQIYW0ozvidnIum4fV3+3UGHmqdbVm0AfDPcXD0YB3TgMPzSceFIo3Iq+qKYBTfhxxySa1XtpmbGrLCbV33JNSZ0PVfEeuLR0Nje3hNc07k7IvKPAV0PGpca20BUVyU/OsOPv1pv4ARFUwPAFtwCREUC5kr+aSC9QNAnYevmoinWN5WZuZsyqwWQ81gwZQEKHQX2G6U7yj5UzqL+ZBDZTyiGAOkzhHhysF8dOml0SG463xUhvjSSOo0sG87Dvc/JOEPAIYcOCsJK49YnWkb4aVXEM11E/9maNZzhWS8HehqDwf+kV5oeNDU6yJUEIAszpgqzWbaAfcQG1UpO7QJCj1KONGEi78NQV/RGSYic0UnfWA15J9UoAMGVU/O+SgL5eA71U0jDZTWQlNTiPnW9/H+o14fvUzVeAia9/L2A+DMgL6JyMbhZq91qSuVAxgRBE3Hs+W611FJ628cRcinEzzjSgmVr2rKFYwU=" />
+
 
         <activity
             android:name=".MapActivity"

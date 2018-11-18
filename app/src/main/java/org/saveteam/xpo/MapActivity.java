@@ -17,17 +17,9 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import com.google.android.gms.auth.api.Auth;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.common.api.ResultCallback;
-import com.google.android.gms.common.api.Status;
 import com.here.android.mpa.common.GeoCoordinate;
 import com.here.android.mpa.common.GeoPosition;
 import com.here.android.mpa.common.LocationDataSourceHERE;
@@ -85,7 +77,7 @@ public class MapActivity extends AppCompatActivity implements
      * if press back 2 times, then quit
      */
     boolean isQuit = false;
-    boolean isGps = false;
+    boolean isGps = true;
 
     @BindView(R.id.btn_confirm_where_map)
     AppCompatButton btnComfirm;
@@ -107,15 +99,13 @@ public class MapActivity extends AppCompatActivity implements
         finish();
     }
 
-
-
     private void initialize() {
         /**
          * init common variables
          */
-
         mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map_fragment_where_map);
         mapFragment.setRetainInstance(false);
+
         /**
          * cache apps
          */
