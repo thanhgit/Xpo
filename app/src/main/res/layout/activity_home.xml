@@ -7,18 +7,16 @@
     android:layout_marginTop="30dp"
     android:orientation="vertical"
     tools:context=".HomeActivity">
+
     <Button
         android:id="@+id/btn_camera_where_home"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginRight="8dp"
+
         android:drawableLeft="@android:drawable/ic_menu_gallery"
         android:text="Choose the video"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -43,16 +41,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginRight="8dp"
+
+
         android:drawableLeft="@android:drawable/ic_menu_mylocation"
         android:ems="10"
         android:hint="Choose the location "
         android:inputType="textPostalAddress"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="122dp" />
 
@@ -68,6 +63,7 @@
         android:layout_marginBottom="8dp"
         android:layout_marginRight="8dp"
         android:enabled="false"
+        android:gravity="center"
         android:drawableLeft="@android:drawable/ic_menu_recent_history"
         android:ems="10"
         android:hint="Time of that moment"
@@ -110,7 +106,9 @@
             android:layout_marginRight="8dp"
             android:layout_marginBottom="80dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@android:color/black"
+            android:textColor="@android:color/white"/>
 
         <Button
             android:id="@+id/btn_submit_where_home"
@@ -119,10 +117,12 @@
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginBottom="80dp"
+
+
             android:text="Submit"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@android:color/black"
+            android:textColor="@android:color/white"/>
     </LinearLayout>
 </LinearLayout>
